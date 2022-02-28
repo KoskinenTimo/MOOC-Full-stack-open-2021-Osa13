@@ -5,9 +5,9 @@ const { User, Blog } = require('../models')
 router.get('/', async (req, res) => {
   const users = await User.findAll({
     include: {
-      model: Blog,
-      attributes: { exclude: ['userId', 'passwordHash'] }
-    }
+      model: Blog
+    },
+    attributes: { exclude: ['userId', 'passwordhash'] }
   })
   res.json(users)
 })
@@ -16,11 +16,11 @@ router.post('/', async (req, res) => {
   try {
     const { username, name, password } = req.body
     const saltRounds = 10
-    const passwordHash = await bcrypt.hash(password, saltRounds)
+    const passwordhash = await bcrypt.hash(password, saltRounds)
     const user = await User.create({
       username,
       name,
-      passwordHash
+      passwordhash
     })   
     res.json({
       id: user.id,
@@ -40,7 +40,7 @@ router.put('/:username', async (req, res) => {
       { where: { username: req.params.username } })
       const updatedUser = await User.findOne({ where: { username: req.params.username } })
     const parsedUser = updatedUser.toJSON()
-    const { passwordHash, ...rest } = parsedUser
+    const { passwordhash, ...rest } = parsedUser
     res.json(rest)
   } else {
     res.status(404).end()

@@ -17,8 +17,7 @@ router.post('/', async (request, response) => {
       error: 'invalid username or password'
     })
   }
-
-  const passwordCorrect = await bcrypt.compare(password, user.passwordHash)
+  const passwordCorrect = await bcrypt.compare(password, user.passwordhash)
   if (!passwordCorrect) {
     return response.status(401).json({
       error: 'invalid username or password'

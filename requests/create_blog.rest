@@ -1,0 +1,11 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdHRpQHVzZXIuY29tIiwiaWQiOjEsImlhdCI6MTY0NjA0ODA3N30.JEtUUXDGHukgD6zu-Vj8II3Wuz3I5wxsTn27KKBYTAs
+
+{
+    "author": "Masa",
+    "url": "www.masa.fi",
+    "title": "Masan blogi",
+    "likes": 13,
+    "year": 2022
+}

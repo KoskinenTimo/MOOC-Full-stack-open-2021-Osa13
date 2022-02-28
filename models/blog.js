@@ -25,11 +25,23 @@ Blog.init({
   likes: {
     type: DataTypes.INTEGER,
     defaultValue: 0
+  },
+  year: {
+    type: DataTypes.INTEGER,
+    validate: {
+      min: {
+        args: 1991,
+        msg: 'Min value for year is 1991'
+      },
+      max: {
+        args: new Date().getFullYear(),
+        msg: `Max value for year is ${new Date().getFullYear()}`
+      }
+    }
   }
 }, {
   sequelize,
   underscored: true,
-  timestamps: false,
   modelName: 'blog'
 })
 
