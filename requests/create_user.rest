@@ -3,6 +3,7 @@ Content-Type: application/json
 
 {
   "name": "Masa",
-  "username": "matti@user.com",
-  "password": "password"
+  "username": "matti6@user.com",
+  "password": "password",
+  "disabled": true
 }
